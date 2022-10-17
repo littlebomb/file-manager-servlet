@@ -26,10 +26,16 @@
         a{
             text-decoration: none;
         }
+        .right{
+            right: 0;
+        }
     </style>
 </head>
 <body>
-<h3 class="ma0 pa2 normal">${date}</h3>
+<div class="flex space-between"
+    <h3 class="ma0 pa2 normal">${date}</h3>
+    <a href="/login"><button class="absolute right">Выйти</button></a>
+</div>
 <h1 class="ma0 pa2">${path}</h1>
 <hr/>
 <div class="flex-row pt2 pb2">
