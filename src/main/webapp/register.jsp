@@ -39,7 +39,7 @@
         }
         .back-link{
             color:blue;
-            font-size: 16px;
+            font-size: 12px;
             text-decoration: none;
         }
         form input, form button{
@@ -62,12 +62,7 @@
             <form class="flex-column pb3" method="post">
                 <p><input name="email" class="w-100 pa2" required type="email" placeholder="Email"></p>
                 <p><input name="login" class="w-100 pa2" required type="text" placeholder="Логин"></p>
-                <div class="relative flex-row flex mt3 mb3 w-100 pointer">
-                    <input name="password" class="w-90 pa2 password" required type="password" placeholder="Пароль" minlength="3">
-                    <div class="eye right-btn items-center flex justify-center w-10" onclick="">
-                        <i data-feather="eye" class="plus"></i>
-                    </div>
-                </div>
+                <p><input name="password" class="w-100 pa2" required type="password" placeholder="Пароль" minlength="3"></p>
                 <p>
                     <button class="w-100 pa2 white justify-center items-center flex relative pointer" type="submit">
                         Войти
@@ -76,12 +71,8 @@
                 </p>
             </form>
             <div class="inline-flex justify-between w-100">
-                <a class="back-link flex pointer items-center justify-center" rel="index" href="/">
-                    <i data-feather="arrow-left" class="plus"></i>
-                    <span>Назад к файловому менеджеру</span>
-                </a>
                 <div class="flex-column">
-                    <a class="back-link flex pointer" href="/login">
+                    <a class="back-link flex pointer" href="./login">
                         <span>Уже есть аккаунт?</span>
                     </a>
                 </div>

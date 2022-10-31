@@ -18,17 +18,17 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@WebServlet("/")
+//@WebServlet("/")
 public class MainServlet extends HttpServlet {
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException {
         UserService user = db.userRepository.getUserFromCookie(req.getCookies());
         if (user != null) {
             String path = req.getParameter("path");
-            if (path == null) path = "/home/xfcedos/users/" + user.getLogin();
-            String homePath = "/home/xfcedos/users/" + user.getLogin();
-            if (homePath.length() <= path.length()) {
+            String homePath = "/home/littlebomb/users/" + user.getLogin();
+            if (path == null) path = homePath;
+            if (path.startsWith(homePath)) {
                 path = path.replaceAll("%20", " ");
                 File file = new File(path);
                 if (!file.exists()) file.mkdir();
@@ -40,8 +40,8 @@ public class MainServlet extends HttpServlet {
                     RequestDispatcher requestDispatcher = req.getRequestDispatcher("fileManager.jsp");
                     requestDispatcher.forward(req, resp);
                 } else downloadFile(resp, file);
-            } else resp.sendRedirect("/denied");
-        } else resp.sendRedirect("/login");
+            } else resp.sendRedirect("./denied");
+        } else resp.sendRedirect("./login");
     }
 
     private List<File> getFiles(File[] files){

@@ -29,11 +29,9 @@
     </style>
 </head>
 <body>
-<h3 class="ma0 pa2 normal">${date}</h3>
-<h1 class="ma0 pa2">${path}</h1>
-<hr/>
+
 <div class="flex-row pt2 pb2">
-    <h1>Access denied</h1>
+    <h1>Доступ запрещён</h1>
 </div>
 </body>
 <script src="https://unpkg.com/feather-icons"></script>

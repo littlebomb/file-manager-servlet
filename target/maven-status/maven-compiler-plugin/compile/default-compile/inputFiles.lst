@@ -1,1 +1,7 @@
+/home/xfcedos/IdeaProjects/file-manager-servlet/src/main/java/org/example/repository/UserRepository.java
+/home/xfcedos/IdeaProjects/file-manager-servlet/src/main/java/org/example/service/UserService.java
 /home/xfcedos/IdeaProjects/file-manager-servlet/src/main/java/org/example/MainServlet.java
+/home/xfcedos/IdeaProjects/file-manager-servlet/src/main/java/org/example/RegisterServlet.java
+/home/xfcedos/IdeaProjects/file-manager-servlet/src/main/java/org/example/DeniedServlet.java
+/home/xfcedos/IdeaProjects/file-manager-servlet/src/main/java/org/example/db.java
+/home/xfcedos/IdeaProjects/file-manager-servlet/src/main/java/org/example/LoginServlet.java

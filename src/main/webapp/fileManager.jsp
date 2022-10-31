@@ -34,7 +34,7 @@
 <body>
 <div class="flex space-between"
     <h3 class="ma0 pa2 normal">${date}</h3>
-    <a href="/login"><button class="absolute right">Выйти</button></a>
+    <a href="./login"><button class="absolute right">Выйти</button></a>
 </div>
 <h1 class="ma0 pa2">${path}</h1>
 <hr/>
