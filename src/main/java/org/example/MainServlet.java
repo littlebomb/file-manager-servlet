@@ -40,8 +40,8 @@ public class MainServlet extends HttpServlet {
                     RequestDispatcher requestDispatcher = req.getRequestDispatcher("fileManager.jsp");
                     requestDispatcher.forward(req, resp);
                 } else downloadFile(resp, file);
-            } else resp.sendRedirect("/denied");
-        } else resp.sendRedirect("/login");
+            } else resp.sendRedirect("./denied");
+        } else resp.sendRedirect("./login");
     }
 
     private List<File> getFiles(File[] files){

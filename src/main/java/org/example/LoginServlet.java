@@ -32,9 +32,9 @@ public class LoginServlet extends HttpServlet {
                 resp.addCookie(new Cookie("login", user.getLogin()));
                 resp.addCookie(new Cookie("password", user.getPassword()));
                 resp.addCookie(new Cookie("email", user.getEmail()));
-                resp.sendRedirect("/");
+                resp.sendRedirect("./");
             }
-            else resp.sendRedirect("/login");
+            else resp.sendRedirect("./login");
         }
     }
 }

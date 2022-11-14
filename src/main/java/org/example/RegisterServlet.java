@@ -28,8 +28,8 @@ public class RegisterServlet extends HttpServlet {
 
         if (login != null && password != null && email != null) {
             UserService user = new UserService(login, password, email);
-            if (db.userRepository.addUser(user)) resp.sendRedirect("/login");
-            else resp.sendRedirect("/register");
+            if (db.userRepository.addUser(user)) resp.sendRedirect("./login");
+            else resp.sendRedirect("./register");
         }
     }
 }

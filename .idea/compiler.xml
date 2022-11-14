@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="file-manager-servlet" target="15" />
+      <module name="file-manager-servlet" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
