@@ -30,8 +30,6 @@ public class LoginServlet extends HttpServlet {
             UserService user = db.userRepository.getUserByLogin(login);
             if (user != null && user.getPassword().equals(password)) {
                 resp.addCookie(new Cookie("login", user.getLogin()));
-                resp.addCookie(new Cookie("password", user.getPassword()));
-                resp.addCookie(new Cookie("email", user.getEmail()));
                 resp.sendRedirect("./");
             }
             else resp.sendRedirect("./login");

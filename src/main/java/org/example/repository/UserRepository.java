@@ -1,56 +1,29 @@
 package org.example.repository;
 
+import org.example.HibernateUtil;
 import org.example.service.UserService;
 
-
+import org.hibernate.Session;
 import javax.servlet.http.Cookie;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.sql.Connection;
+
 
 public class UserRepository {
 
-    private Connection connection;
-
-    private Connection getConnection() throws
-            SQLException, ClassNotFoundException {
-        if (connection != null && !connection.isClosed()) return connection;
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "123456");
-        return connection;
-    }
-
     public UserService getUserByLogin(String login) {
-        try {
-            PreparedStatement st = getConnection()
-                    .prepareStatement("SELECT login, password, email FROM users WHERE login = ?");
-            st.setString(1, login);
-            ResultSet rs = st.executeQuery();
-            if (rs.next()) {
-                return new UserService(
-                        rs.getString("login"),
-                        rs.getString("password"),
-                        rs.getString("email")
-                );
-            } else {
-                return null;
-            }
+        UserService user = null;
+        try (Session session = HibernateUtil.getSession()){
+            user = session.byNaturalId(UserService.class).using("login", login).load();
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
-            return null;
         }
+        return user;
     }
 
     public boolean addUser(UserService user) {
-        try {
-            PreparedStatement st = getConnection()
-                .prepareStatement("INSERT INTO users (login, password, email) VALUES (?, ?, ?)");
-            st.setString(1, user.getLogin());
-            st.setString(2, user.getPassword());
-            st.setString(3, user.getEmail());
-            st.executeUpdate();
+        try (Session session = HibernateUtil.getSession()){
+            session.beginTransaction();
+            session.persist(user);
+            session.getTransaction().commit();
         } catch (Exception exception){
             System.out.println(exception.getMessage());
             return false;
